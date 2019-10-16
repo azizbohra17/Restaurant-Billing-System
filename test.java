@@ -1,3 +1,4 @@
+//This class is used to add food items through unique code of the same food item
 package my_mini_project;
 
 import java.awt.FlowLayout;
@@ -45,9 +46,10 @@ public class test
 					{
 						String a = foodcode.getText(); //textfield_object.getText() gives you the string entered by the user in that textfield
 											
-							fd[i]=a;
+							fd[i]=a;      //storing the unique code of food items in the array
 							i++;
 							confirm_bill();
+							conbill.dispose();
 						
 					}
 				});
@@ -56,7 +58,8 @@ public class test
 	    {//second button
 	    	public void actionPerformed(ActionEvent e)
 	    	{
-	    		ob.addfood(fd);
+	    		ob.addfood(fd);     //calling the add class for the total amount
+	    		conbill.dispose();
 	    	}
 	    });
 		
