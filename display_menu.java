@@ -1,37 +1,18 @@
+//This class compares waiter's credentials
 package my_mini_project;
 import java.awt.FlowLayout;
+import java.awt.Frame;
 import java.awt.Label;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.*;
 import java.util.Vector;
 
 import javax.swing.*;
 import java.util.*;
-//import net.proteanit.sql.DbUtils;
-public class display_menu 
+
+public class display_menu extends Frame 
 {
-	public static void disp_menu()
-	{
-		Connection con= null;
-		Statement statement =null;
-		ResultSet result=null;
-		try
-		{
-			Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-			con=DriverManager.getConnection("jdbc:ucanaccess://D:\\java\\Database\\Restaurant.accdb");
-			statement = con.createStatement();
-			result = statement.executeQuery("SELECT * FROM Menu");
-			Vector mcard=new Vector();
-			
-			while (result.next())
-			{
-				System.out.println(result.getString(4)+"\t"+result.getString(1)+"\t"+result.getInt(2));
-			}
-		}
-			catch(Exception e)
-			{
-				System.out.println(e);
-			}
-	}
 	public void search(String u,String p)
 	{   JFrame log=new JFrame();
 		Connection con= null;
@@ -64,9 +45,11 @@ public class display_menu
 					d1.add(b1);
 					d1.setVisible(true);
 					TableDemo tb=new TableDemo();
-					tb.tabmenu();
-					test ob=new test();
+					tb.tabmenu();                //Calling the class to display Menu
+					test ob=new test();          //Calling the test class to display add items window
 					ob.confirm_bill();
+					
+					
 					break;
 				}
 				else
